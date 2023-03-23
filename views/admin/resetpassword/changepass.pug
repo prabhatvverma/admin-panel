@@ -1,0 +1,20 @@
+extends ../../layout.pug
+block content
+	.content-wrapper
+		.main-panel
+			.card
+				.card-body
+					h4.card-title.h1 Change Password 
+					form.forms-sample
+						.form-group
+						label(for='exampleInputUsername1') Old Password
+						input#exampleInputUsername1.form-control(type='text' placeholder='Old Password')
+						.form-group
+						label(for='exampleInputPassword1') Password
+						input#exampleInputPassword1.form-control(type='password' placeholder='Password' )
+						.form-group
+						label(for='exampleInputConfirmPassword1') Confirm Password
+						input#exampleInputConfirmPassword1.form-control(type='password' placeholder='Confirm Password')
+						.form-check.form-check-flat.form-check-primary
+						button.btn.btn-primary.mr-2(type='submit') Submit
+						button.btn.btn-dark(herf='/admin') Cancel 

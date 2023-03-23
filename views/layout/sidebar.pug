@@ -1,0 +1,104 @@
+.sidebar.sidebar-offcanvas
+	nav#sidebar.sidebar.sidebar-offcanvas
+		.sidebar-brand-wrapper.d-none.d-lg-flex.align-items-center.justify-content-center.fixed-top
+			a.sidebar-brand.brand-logo(href='index.html')
+				img(src='/images/logo.svg', alt='logo')
+			a.sidebar-brand.brand-logo-mini(href='index.html')
+				img(src='/images/logo-mini.svg', alt='logo')
+		ul.nav
+			li.nav-item.profile
+				.profile-desc
+					.profile-pic
+						.count-indicator
+							img.img-xs.rounded-circle(src='/images/faces/face15.jpg', alt='')
+							span.count.bg-success
+						.profile-name
+							h5.mb-0.font-weight-normal Henry Klein
+							span Gold Member
+					a#profile-dropdown(href='#', data-toggle='dropdown')
+						i.mdi.mdi-dots-vertical
+					.dropdown-menu.dropdown-menu-right.sidebar-dropdown.preview-list(aria-labelledby='profile-dropdown')
+						a.dropdown-item.preview-item(href='#')
+							.preview-thumbnail
+								.preview-icon.bg-dark.rounded-circle
+									i.mdi.mdi-settings.text-primary
+							.preview-item-content
+								p.preview-subject.ellipsis.mb-1.text-small Account settings
+						.dropdown-divider
+						a.dropdown-item.preview-item(href='/changepass')
+							.preview-thumbnail
+								.preview-icon.bg-dark.rounded-circle
+									i.mdi.mdi-onepassword.text-info
+							.preview-item-content
+								p.preview-subject.ellipsis.mb-1.text-small Change Password
+						.dropdown-divider
+						a.dropdown-item.preview-item(href='#')
+							.preview-thumbnail
+								.preview-icon.bg-dark.rounded-circle
+									i.mdi.mdi-calendar-today.text-success
+							.preview-item-content
+								p.preview-subject.ellipsis.mb-1.text-small To-do list
+			li.nav-item.nav-category
+				span.nav-link Navigation
+			li.nav-item.menu-items
+				a.nav-link(href='index.html')
+					span.menu-icon
+						i.mdi.mdi-speedometer
+					span.menu-title Dashboard
+			li.nav-item.menu-items
+				a.nav-link(data-toggle='collapse', href='#ui-basic', aria-expanded='false', aria-controls='ui-basic')
+					span.menu-icon
+						i.mdi.mdi-laptop
+					span.menu-title Basic UI Elements
+					i.menu-arrow
+				#ui-basic.collapse
+					ul.nav.flex-column.sub-menu
+						li.nav-item
+							a.nav-link(href='pages/ui-features/buttons.html') Buttons
+						li.nav-item
+							a.nav-link(href='pages/ui-features/dropdowns.html') Dropdowns
+						li.nav-item
+							a.nav-link(href='pages/ui-features/typography.html') Typography
+			li.nav-item.menu-items
+				a.nav-link(href='pages/forms/basic_elements.html')
+					span.menu-icon
+						i.mdi.mdi-playlist-play
+					span.menu-title Form Elements
+			li.nav-item.menu-items
+				a.nav-link(href='pages/tables/basic-table.html')
+					span.menu-icon
+						i.mdi.mdi-table-large
+					span.menu-title Tables
+			li.nav-item.menu-items
+				a.nav-link(href='pages/charts/chartjs.html')
+					span.menu-icon
+						i.mdi.mdi-chart-bar
+					span.menu-title Charts
+			li.nav-item.menu-items
+				a.nav-link(href='pages/icons/mdi.html')
+					span.menu-icon
+						i.mdi.mdi-contacts
+					span.menu-title Icons
+			li.nav-item.menu-items
+				a.nav-link(data-toggle='collapse', href='#auth', aria-expanded='false', aria-controls='auth')
+					span.menu-icon
+						i.mdi.mdi-security
+					span.menu-title User Pages
+					i.menu-arrow
+				#auth.collapse
+					ul.nav.flex-column.sub-menu
+						li.nav-item
+							a.nav-link(href='pages/samples/blank-page.html')  Blank Page 
+						li.nav-item
+							a.nav-link(href='pages/samples/error-404.html')  404 
+						li.nav-item
+							a.nav-link(href='pages/samples/error-500.html')  500 
+						li.nav-item
+							a.nav-link(href='/login')  Login 
+						li.nav-item
+							a.nav-link(href='/register')  Register 
+			li.nav-item.menu-items
+				a.nav-link(href='documentation')
+					span.menu-icon
+						i.mdi.mdi-file-document-box
+					span.menu-title Documentation

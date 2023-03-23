@@ -1,0 +1,98 @@
+html(lang='en')
+	head
+		// Required meta tags
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		title Corona Admin
+		// plugins:css
+		link(rel='stylesheet', href='/stylesheets/mdi/css/materialdesignicons.min.css')
+		link(rel='stylesheet', href='/stylesheets/css/vendor.bundle.base.css')
+		// endinject
+		// Plugin css for this page
+		// End plugin css for this page
+		// inject:css
+		// endinject
+		// Layout styles
+		link(rel='stylesheet', href='/stylesheets/css/style.css')
+		// End layout styles
+		link(rel='shortcut icon', href='/images/favicon.png')
+	body
+		.container-scroller
+			.container-fluid.page-body-wrapper.full-page-wrapper
+				.row.w-100.m-0
+					.content-wrapper.full-page-wrapper.d-flex.align-items-center.auth.login-bg
+						.card.col-lg-4.mx-auto
+							.card-body.px-5.py-5
+								h3.card-title.text-left.mb-3 Register
+								form(action="/register " method = "POST" id="formRegister") 
+									.form-group
+										if value
+											label Username
+											input.form-control.p_input(type='text' name = 'user_name')
+											each v in value
+												if v.param == 'user_name'
+													span(class='text-danger') !{v.msg}
+										else 
+											label Username
+											input.form-control.p_input(type='text' name = 'user_name')
+											.error
+									.form-group
+										if value
+											label Email
+											input.form-control.p_input(type='email' id= "email" name = 'email')
+											each v in value
+												if v.param == 'email'
+													span(class='text-danger') !{v.msg}
+										else
+											label Email
+											input.form-control.p_input(type='email' id= "email" name = 'email')
+									.form-group
+										if value
+											label Password
+											input.form-control.p_input(name='password' type='password' )
+											each v in value
+												if v.param == 'password'
+													span(class='text-danger') !{v.msg}
+										else
+											label Password
+											input.form-control.p_input(name='password' type='password')
+									.form-group
+										if value
+											label Conferm Password
+											input.form-control.p_input(name='cpassword' type='password'  )
+											each v in value
+												if v.param == 'cpassword'
+													span !{v.msg}
+										else
+											label Conferm Password
+											input.form-control.p_input(name='cpassword' type='password')
+									.form-group.d-flex.align-items-center.justify-content-between
+										.form-check
+											label.form-check-label
+												input.form-check-input(type='checkbox')
+												|  Remember me
+										a.forgot-pass(href='/reset') Forgot password
+									.text-center
+										button.btn.btn-primary.btn-block.enter-btn(type='submit' name ='submit') Register
+									.d-flex
+										button.btn.btn-facebook.col.mr-2
+											i.mdi.mdi-facebook
+											|  Facebook
+										button.btn.btn-google.col
+											i.mdi.mdi-google-plus
+											|  Google plus
+									p.sign-up.text-center
+										| Already have an Account?
+										a(href='/login')  Log In
+									p.terms
+										| By creating an account you are accepting our
+										a(href='#')  Terms &amp; Conditions
+					script(src='/javascripts/js/vendor.bundle.base.js')
+					script(src='/javascripts/js/off-canvas.js')
+					script(src='/javascripts/js/hoverable-collapse.js')
+					script(src='/javascripts/js/misc.js')
+					script(src='/javascripts/js/settings.js')
+					script(src='/javascripts/js/todolist.js')
+					script(src="https://code.jquery.com/jquery-3.6.4.min.js")
+					script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js")
+					script(src='/javascripts/validation/regValidation.js')

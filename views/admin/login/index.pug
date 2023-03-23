@@ -1,0 +1,72 @@
+doctype html
+html(lang='en')
+	head
+		// Required meta tags
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		title Corona Admin
+		// plugins:css
+		link(rel='stylesheet', href='/stylesheets/mdi/css/materialdesignicons.min.css')
+		link(rel='stylesheet', href='/stylesheets/css/vendor.bundle.base.css')
+		// endinject
+		// Plugin css for this page
+		// End plugin css for this page
+		// inject:css
+		// endinject
+		// Layout styles
+		link(rel='stylesheet', href='/stylesheets/css/style.css')
+		// End layout styles
+		link(rel='shortcut icon', href='/images/favicon.png')
+	body
+		.container-scroller
+			.container-fluid.page-body-wrapper.full-page-wrapper
+				.row.w-100.m-0
+					.content-wrapper.full-page-wrapper.d-flex.align-items-center.auth.login-bg
+						.card.col-lg-4.mx-auto
+							.card-body.px-5.py-5
+								h3.card-title.text-left.mb-3 Login
+								form(action="/login" method = "POST" id = "loginForm")
+									.form-group
+										label Email *
+										input.form-control.p_input(type='text' name = "email")
+										//- console.log(msg);
+									.form-group
+										label Password *
+										input.form-control.p_input(type='password' name = "password")
+									.form-group.d-flex.align-items-center.justify-content-between
+										.form-check
+											label.form-check-label
+												input.form-check-input(type='checkbox')
+												|  Remember me
+										a.forgot-pass(href='/reset') Forgot password
+									.text-center
+										button.btn.btn-primary.btn-block.enter-btn(type='submit' name ='submit') Login
+									.d-flex
+										button.btn.btn-facebook.mr-2.col
+											i.mdi.mdi-facebook
+											|  Facebook
+										button.btn.btn-google.col
+											i.mdi.mdi-google-plus
+											|  Google plus
+									p.sign-up
+										| Don&apos;t have an Account?
+										a(href='/register')  Sign Up
+					// content-wrapper ends
+					// row ends
+					// page-body-wrapper ends
+					// container-scroller
+					// plugins:js
+					script(src='/javascripts/js/vendor.bundle.base.js')
+					// endinject
+					// Plugin js for this page
+					// End plugin js for this page
+					// inject:js
+					script(src='/javascripts/js/off-canvas.js')
+					script(src='/javascripts/js/hoverable-collapse.js')
+					script(src='/javascripts/js/misc.js')
+					script(src='/javascripts/js/settings.js')
+					script(src='/javascripts/js/todolist.js')
+					script(src="https://code.jquery.com/jquery-3.6.4.min.js")
+					script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js")
+					script(src='/javascripts/validation/loginValidation.js')
+					// endinject

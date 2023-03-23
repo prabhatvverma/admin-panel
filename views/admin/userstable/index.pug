@@ -1,0 +1,25 @@
+extends ../../layout.pug
+block content
+	.content-wrapper
+		.card.usrtbl
+			.card-body
+				h4.card-title User Deatils
+				.table-responsive
+				table.table.table-bordered.table-contextual
+					thead
+					tr
+						th  Id 
+						th  User Name 
+						th  Email 
+						th  Date&Time 
+						th  Delete/Update 
+					tbody
+						each val, index in users
+							tr
+								td !{val.id} 
+								td !{val.user_name}
+								td !{val.email} 
+								td !{val.createdAt} 
+								td 
+									<a class="btn btn-outline-success" href="/users/!{val.id}/edit">edit</a>
+									<a class="btn btn-outline-danger" onclick= "return confirm('Are You Sure ?')" href="/users/!{val.id}/delete">Delete</a>

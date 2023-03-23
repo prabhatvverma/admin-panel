@@ -1,0 +1,41 @@
+html
+	head
+	<link rel="stylesheet" href="/stylesheets/mdi/css/materialdesignicons.min.css">
+	<link rel="stylesheet" href="/stylesheets/css/vendor.bundle.base.css">
+	<!-- endinject -->
+	<!-- Plugin css for this page -->
+	<link rel="stylesheet" href="/stylesheets/jvectormap/jquery-jvectormap.css">
+	<link rel="stylesheet" href="/stylesheets/flag-icon-css/css/flag-icon.min.css">
+	<link rel="stylesheet" href="/stylesheets/owl-carousel-2/owl.carousel.min.css">
+	<link rel="stylesheet" href="/stylesheets/owl-carousel-2/owl.theme.default.min.css">
+	<!-- End plugin css for this page -->
+	<!-- inject:css -->
+	<!-- endinject -->
+	<!-- Layout styles -->
+	<link rel="stylesheet" href="/stylesheets/css/style.css">
+	body
+		.container-scroller
+			//sidebar start
+			include ./layout/sidebar.pug
+			block content
+		.container-fluid.page-body-wrapper
+			include ./layout/navgationbar.pug
+
+		script(src='/javascripts/js/vendor.bundle.base.js')
+		// endinject
+		// Plugin js for this page
+		script(src='/javascripts/chart.js/Chart.min.js')
+		script(src='/javascripts/progressbar.js/progressbar.min.js')
+		script(src='/javascripts/jvectormap/jquery-jvectormap.min.js')
+		script(src='/javascripts/jvectormap/jquery-jvectormap-world-mill-en.js')
+		script(src='/javascripts/owl-carousel-2/owl.carousel.min.js')
+		// End plugin js for this page
+		// inject:js
+		script(src='/javascripts/js/off-canvas.js')
+		script(src='/javascripts/js/hoverable-collapse.js')
+		script(src='/javascripts/js/misc.js')
+		script(src='/javascripts/js/settings.js')
+		script(src='/javascripts/js/todolist.js')
+		// endinject
+		// Custom js for this page
+		script(src='/javascripts/js/dashboard.js')
