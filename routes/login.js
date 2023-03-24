@@ -18,7 +18,7 @@ var loginValidation = [
 ]
 
 /* GET login page. */
-router.get('/', loginController.login);
+router.get('/', loginController.showLoginForm);
 router.post('/', loginValidation, loginController.loginUser);
 
 module.exports = router;

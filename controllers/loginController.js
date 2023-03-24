@@ -10,10 +10,15 @@ class loginController {
          * @param {*} res 
          * @param {*} next 
          */
-    async login(req, res, next) {
+    async showLoginForm(req, res, next) {
         res.render('admin/login/index')
     }
-
+    /**
+     * login user to admin panel
+     * @param {*} req 
+     * @param {*} res 
+     * @param {*} next 
+     */
     async loginUser(req, res, next) {
         const result = validationResult(req);
         // console.log(result);

@@ -106,9 +106,16 @@
 /* === Import template variables === */
 /*-------------------------------------------------------------------*/
 /* === SCSS Compass Functions === */
+.errormsg{
+  content: box;
+} 
+#email-error {
+  margin-top: -5%;
+}
+
 .error {
-  font-style: italic; 
-  color:red;
+  font-style: italic;
+  color: red;
 }
 
 .usrtbl {

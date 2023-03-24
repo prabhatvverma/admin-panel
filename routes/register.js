@@ -1,14 +1,11 @@
 const express = require('express');
-const { check } = require('express-validator');
 const registerController = require('../controllers/registerController');
 const router = express.Router();
 const registrationValidation = require('../middleware/validation/regsterValidation')
 
-
-
-
+/**Route for registration form */
 router.get('/', registerController.showRegisterForm);
-
-router.post('/', registrationValidation, registerController.registerUser);
+/** Route for users details */
+router.post('/', registrationValidation, registerController.registeredUser);
 
 module.exports = router;

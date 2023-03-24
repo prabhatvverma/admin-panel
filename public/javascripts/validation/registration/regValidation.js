@@ -40,20 +40,20 @@ $("#formRegister").validate({
     }
 });
 
-const email = document.getElementsById('email');
-email.addEventListener('load',validateEmail);
+// const email = document.getElementsById('email');
+// email.addEventListener('load',validateEmail);
 
-function validateEmail(){
-    console.log("load event workin");
-    const url = "/register"
-    const method = "POST"
+// function validateEmail(){
+//     console.log("load event workin");
+//     const url = "/register"
+//     const method = "POST"
     
-    const xhr = XMLHttpRequest();
+//     const xhr = XMLHttpRequest();
 
-    xhr.addEventListener('load', (e)=>
-    {
+//     xhr.addEventListener('load', (e)=>
+//     {
 
-    })
-}
+//     })
+// }
 
 
