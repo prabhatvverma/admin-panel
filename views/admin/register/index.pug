@@ -25,17 +25,27 @@ html(lang='en')
 							.card-body.px-5.py-5
 								h3.card-title.text-left.mb-3 Register
 								form(action="/register " method = "POST" id="formRegister") 
-									.form-group
-										if value
-											label Username
-											input.form-control.p_input(type='text' name = 'user_name')
-											each v in value
-												if v.param == 'user_name'
-													span(class='text-danger') !{v.msg}
-										else 
-											label Username
-											input.form-control.p_input(type='text' name = 'user_name')
-											.error
+									.row
+										.form-group.col-sm
+											if value
+												label First Name
+												input.form-control.p_input(type='text' name = 'first_name')
+												each v in value
+													if v.param == 'first_name'
+														span(class='text-danger') !{v.msg}
+											else 
+												label First Name
+												input.form-control.p_input(type='text' name = 'first_name')
+										.form-group.col-sm
+											if value
+												label Last Name
+												input.form-control.p_input(type='text' name = 'last_name')
+												each v in value
+													if v.param == 'first_name'
+														span(class='text-danger') !{v.msg}
+											else 
+												label Last Name
+												input.form-control.p_input(type='text' name = 'last_name')
 									.form-group
 										if value
 											label Email

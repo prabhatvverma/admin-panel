@@ -1,8 +1,12 @@
 $("#formRegister").validate({
     rules: {
-        user_name: {
+        first_name: {
             required: true,
-            minlength: 5
+            minlength: 3
+        },
+        last_name: {
+            required: true,
+            minlength: 3
         },
         email: {
             required: true,
@@ -19,9 +23,13 @@ $("#formRegister").validate({
         }
     },
     messages: {
-        user_name: {
-            required: "Enter your name",
-            minlength: "At least 5 characters !"
+        first_name: {
+            required: "Enter first name",
+            minlength: "At least 3 characters !"
+        },
+        last_name:{
+            required: "Enter last name",
+            minlength: "At least 3 characters !"
         },
         email: {
             required: "Enter Email",

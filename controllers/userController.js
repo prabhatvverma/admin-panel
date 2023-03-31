@@ -1,13 +1,5 @@
 class usersController {
-    /**
-     *  Rendering Admin page
-     * @param {*} req 
-     * @param {*} res 
-     * @param {*} next 
-     */
-    async admin(req, res, next) {
-        res.render('admin/adminpanel/index');
-    }
+ 
 
     /**
      * render change password page 

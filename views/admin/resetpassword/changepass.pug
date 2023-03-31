@@ -5,16 +5,40 @@ block content
 			.card
 				.card-body
 					h4.card-title.h1 Change Password 
-					form.forms-sample
+					form.forms-sample(action="/admin/hello" method = "POST" id="changePass")
 						.form-group
-						label(for='exampleInputUsername1') Old Password
-						input#exampleInputUsername1.form-control(type='text' placeholder='Old Password')
+						if value
+							label(for='exampleInputUsername1') Old Password
+							input#exampleInputUsername1.form-control(type='text' placeholder='Old Password' name = "old_password")
+							each val in value
+								if val.param == 'old_password'
+									span(class='text-danger') !{val.msg}
+						else
+							label(for='exampleInputUsername1') Old Password
+							input#exampleInputUsername1.form-control(type='text' placeholder='Old Password' name = "old_password")
 						.form-group
-						label(for='exampleInputPassword1') Password
-						input#exampleInputPassword1.form-control(type='password' placeholder='Password' )
+						if value
+							label(for='exampleInputPassword1') New Password
+							input#exampleInputPassword1.form-control(type='password' placeholder='New Password' name = "new_password" )
+							each val in value
+								if val.param == 'new_password'
+									span(class = 'text-danger') !{val.msg}
+						else
+							label(for='exampleInputPassword1') New Password
+							input#exampleInputPassword1.form-control(type='password' placeholder='New Password' name = "new_password" )
 						.form-group
-						label(for='exampleInputConfirmPassword1') Confirm Password
-						input#exampleInputConfirmPassword1.form-control(type='password' placeholder='Confirm Password')
+						if value
+							label(for='exampleInputConfirmPassword1') Confirm Password
+							input#exampleInputConfirmPassword1.form-control(type='password' placeholder='Confirm Password' name = "cnf_password")
+							each val in value
+								if val.param =='cnf_password'
+									span(class='text-danger') !{val.msg}
+						else
+							label(for='exampleInputConfirmPassword1') Confirm Password
+							input#exampleInputConfirmPassword1.form-control(type='password' placeholder='Confirm Password' name = "cnf_password")
 						.form-check.form-check-flat.form-check-primary
-						button.btn.btn-primary.mr-2(type='submit') Submit
+						button.btn.btn-primary.mr-2(type='submit' name ='submit') Submit
 						button.btn.btn-dark(herf='/admin') Cancel 
+					script(src="https://code.jquery.com/jquery-3.6.4.min.js")
+					script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js")
+					script(src='/javascripts/validation/changePass/changePassValidation.js')

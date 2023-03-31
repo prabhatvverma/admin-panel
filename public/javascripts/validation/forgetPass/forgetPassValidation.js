@@ -1,4 +1,3 @@
-console.log("here");
 $("#forgetPassForm").validate({
     rules: {
         email: {

@@ -27,12 +27,26 @@ html(lang='en')
 								h3.card-title.text-left.mb-3 Login
 								form(action="/login" method = "POST" id = "loginForm")
 									.form-group
-										label Email *
-										input.form-control.p_input(type='text' name = "email")
+										if value
+											label Email *
+											input.form-control.p_input(type='text' name = "email")
+											each v in value
+												if v.param == 'email','is_verified'
+													span(class='text-danger') !{v.msg}
+										else 
+											label Email *
+											input.form-control.p_input(type='text' name = "email")
 										//- console.log(msg);
 									.form-group
-										label Password *
-										input.form-control.p_input(type='password' name = "password")
+										if value
+											label Password *
+											input.form-control.p_input(type='password' name = "password")
+											each v in value
+												if v.param =='password','is_verified'
+													span(class = 'text-danger') !{v.msg}
+										else
+											label Password *
+											input.form-control.p_input(type='password' name = "password")
 									.form-group.d-flex.align-items-center.justify-content-between
 										.form-check
 											label.form-check-label

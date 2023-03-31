@@ -1,9 +1,9 @@
 .sidebar.sidebar-offcanvas
 	nav#sidebar.sidebar.sidebar-offcanvas
 		.sidebar-brand-wrapper.d-none.d-lg-flex.align-items-center.justify-content-center.fixed-top
-			a.sidebar-brand.brand-logo(href='index.html')
+			a.sidebar-brand.brand-logo(href='/admin')
 				img(src='/images/logo.svg', alt='logo')
-			a.sidebar-brand.brand-logo-mini(href='index.html')
+			a.sidebar-brand.brand-logo-mini(href='/admin')
 				img(src='/images/logo-mini.svg', alt='logo')
 		ul.nav
 			li.nav-item.profile
@@ -25,7 +25,7 @@
 							.preview-item-content
 								p.preview-subject.ellipsis.mb-1.text-small Account settings
 						.dropdown-divider
-						a.dropdown-item.preview-item(href='/changepass')
+						a.dropdown-item.preview-item(href='/admin/changepass')
 							.preview-thumbnail
 								.preview-icon.bg-dark.rounded-circle
 									i.mdi.mdi-onepassword.text-info
@@ -41,7 +41,7 @@
 			li.nav-item.nav-category
 				span.nav-link Navigation
 			li.nav-item.menu-items
-				a.nav-link(href='index.html')
+				a.nav-link(href='/admin')
 					span.menu-icon
 						i.mdi.mdi-speedometer
 					span.menu-title Dashboard
@@ -65,7 +65,7 @@
 						i.mdi.mdi-playlist-play
 					span.menu-title Form Elements
 			li.nav-item.menu-items
-				a.nav-link(href='pages/tables/basic-table.html')
+				a.nav-link(href='/admin/users')
 					span.menu-icon
 						i.mdi.mdi-table-large
 					span.menu-title Tables
