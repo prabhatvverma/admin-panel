@@ -1,6 +1,6 @@
 const db = require('../models/index')
 const { validationResult, Result } = require('express-validator');
-
+const bcrypt = require('bcrypt');
 class adminController {
     /**
   *  Rendering Admin page
@@ -45,11 +45,18 @@ class adminController {
         const result = validationResult(req);
         const value = result.errors;
         console.log(result);
-        if (value) {
+        if (value.length > 0) {
             res.render('admin/resetpassword/changepass', {
                 value
             })
         }
+        req.body.new_password = await bcrypt.hash(req.body.new_password, 10);
+        await db.User.update({ password: req.body.new_password }, {
+            where: {
+                email: req.session.user
+            }
+        });
+        res.redirect('/admin')
     }
 
     async deleteUserDetails(req, res, next) {

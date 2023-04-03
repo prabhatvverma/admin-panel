@@ -14,11 +14,10 @@ const changePasswordValidation = [
                 throw new Error("Enter Valid Old Password")
             }
         }).bail(),
-    check("new_password").not().isEmpty().withMessage("Enter Password").bail()
-    ,
+    check("new_password").not().isEmpty().withMessage("Enter Password").bail(),
     check("cnf_password").not().isEmpty().withMessage("Enter Password").bail()
         .custom(async (value, { req }) => {
-            if (value !== req.body.new_pasword) {
+            if (value !== req.body.new_password) {
                 throw new Error("Enter same password");
             }
         })

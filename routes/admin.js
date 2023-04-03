@@ -10,5 +10,5 @@ router.get('/logout', adminController.logoutUser);
 router.get('/users', adminController.showAllUsersDetails);
 router.get('/deluser', adminController.deleteUserDetails);
 router.get('/changepass', changePasswordValidation, adminController.changepass);
-router.post('/hello', changePasswordValidation, adminController.userPassChange);
+router.post('/changepass/genNewPass', changePasswordValidation, adminController.userPassChange);
 module.exports = router;
