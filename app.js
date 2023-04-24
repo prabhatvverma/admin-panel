@@ -4,17 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
+const passport = require('passport');
 
-// const bcrypt = require('bcrypt'); //importing bcrypt package
-
-// var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-const loginRouter = require('./routes/login')
-const registerRouter = require('./routes/register');
-const resetPassRouter = require('./routes/forgetPas');
-const adminPanelRouter = require('./routes/admin');
-// const usrDetTblRouter = require('./routes/userstable');
 var app = express();
+
+
 // app.use(bcrypt);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,14 +27,21 @@ app.use(session({
   saveUninitialized: true,
   // cookie: { secure: true }
 }))
-
-
+app.use(passport.initialize());
+app.use(passport.session());
 // app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/login', loginRouter);
-app.use('/register', registerRouter);
-app.use('/forget', resetPassRouter);
-app.use('/admin', adminPanelRouter);
+app.use('/users', require('./routes/users'));
+app.use('/login', require('./routes/login'));
+app.use('/register', require('./routes/register'));
+app.use('/forget', require('./routes/forgetPas'));
+app.use('/admin', require('./routes/admin'));
+
+
+app.get( '/auth/google/callback',
+    passport.authenticate( 'google', {
+        successRedirect: '/admin',
+        failureRedirect: '/register'
+}));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

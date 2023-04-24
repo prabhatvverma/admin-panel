@@ -16,20 +16,9 @@ module.exports = (sequelize, DataTypes) => {
   User.init({
     first_name: DataTypes.STRING,
     last_name: DataTypes.STRING,
-    name: {
-      type: DataTypes.VIRTUAL,
-      get() {
-        return `${this.first_name} ${this.last_name}`;
-      },
-      set(value) {
-        throw new Error('Do not try to set the `fullName` value!');
-      }
-    },
-    is_verified:{ type: DataTypes.STRING,
-    defaultValue: "0"
-    },
     email: DataTypes.STRING,
-    password: DataTypes.STRING
+    password:DataTypes.STRING,
+    is_verified:DataTypes.STRING
   }, {
     sequelize,
     modelName: 'User',
