@@ -26,7 +26,6 @@ class registerController {
     async registerUser(req, res, next) {
         const result = validationResult(req);
         let value = result.errors;
-        // console.log(result);
         if (value.length>0) {
             res.render('admin/register/index', {
                 value
@@ -40,29 +39,25 @@ class registerController {
                 email: req.body.email
             }
         });
-        const full_name = users.name;
-        const usersId = users.id;
-
+        const fullName = users.name;
+        const userId = users.id;
+        const emailTO = users.email;
+        const emailFrom = "prabhat@gmail.com"
         // const token = jwt.sign({
         //     data: 'Token Data'
         // }, 'ourSecretKey', { expiresIn: '10m' }
         // );
-        let url = "http://localhost:3000/register/verify?id=" + usersId
+        let url = "http://localhost:3000/register/verify?id=" + userId
         // console.log(url);
         // console.log(`${token},this is token`);
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: process.env.FACEBOOK_APP_ID,
-                pass: process.env.FACEBOOK_APP_SECRET
-            }
-        });
-
-        await transporter.sendMail({
-            from: '"Debute Infotech" <prabhat@gmail.com>', // sender address
-            to: req.body.email, // list of receivers
-            subject: "verification mail", // Subject line
-            html: 'Hii ' + full_name + ',please click here <a href="' + url + '">Verify</a> your mail'
+        const sendMail = require("../services/emailService");
+        sendMail({
+            from: emailFrom,
+            to: emailTO,
+            subject:"Email Varification",
+            text: `${emailFrom} shared you a link to verify this is you`,
+            html: 'Hii ' + fullName + ',please click here <a href="' + url + '">Verify</a> your mail'
+            
         });
         res.send("You are registerd check email to verfy email");
         // res.redirect('/register')

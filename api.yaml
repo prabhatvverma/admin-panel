@@ -17,6 +17,7 @@ info:
 schemes: [http,https]
 
 paths: 
+#login url
   /login:
     get:
       summary: This route will return your login page
@@ -30,5 +31,15 @@ paths:
           description: User Error
         500:
           description: Internal Server Error
+# Register url
+  /register:
+    get:
+      summary: This route will return you register page 
+      description: It will load register page have all the fields for a user to register with admin panel
+      responses:
+        200:
+          description: Success
+          schema:
+            type: string
 
         
