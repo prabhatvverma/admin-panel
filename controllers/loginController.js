@@ -10,6 +10,8 @@ class loginController {
          * @param {*} next 
          */
     async showLoginForm(req, res, next) {
+        
+        // res.status(200).send("hello");
         res.render('admin/login/index')
     }
     /**

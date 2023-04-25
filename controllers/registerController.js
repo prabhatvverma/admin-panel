@@ -26,7 +26,7 @@ class registerController {
     async registerUser(req, res, next) {
         const result = validationResult(req);
         let value = result.errors;
-        console.log(result);
+        // console.log(result);
         if (value.length>0) {
             res.render('admin/register/index', {
                 value
@@ -53,8 +53,8 @@ class registerController {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'prabhatnode@gmail.com',
-                pass: 'vfblwfulwegxjmpf'
+                user: process.env.FACEBOOK_APP_ID,
+                pass: process.env.FACEBOOK_APP_SECRET
             }
         });
 

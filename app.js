@@ -1,12 +1,19 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var session = require('express-session');
-const passport = require('passport');
 
-var app = express();
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const session = require('express-session');
+const passport = require('passport');
+const swaggerUI = require('swagger-ui-express')
+const YAML = require('yamljs')
+const swaggerJsDocs = YAML.load('./api.yaml');
+
+
+
+const app = express();
+
 
 
 // app.use(bcrypt);
@@ -29,6 +36,12 @@ app.use(session({
 }))
 app.use(passport.initialize());
 app.use(passport.session());
+
+
+//YAML LISTENING ROUTE DEFINE
+
+app.use('/api-docs', swaggerUI.serve,swaggerUI.setup(swaggerJsDocs));
+
 // app.use('/', indexRouter);
 app.use('/users', require('./routes/users'));
 app.use('/login', require('./routes/login'));
