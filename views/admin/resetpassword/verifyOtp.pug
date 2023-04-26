@@ -1,0 +1,48 @@
+html(lang='en')
+	head
+		// Required meta tags
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		title Corona Admin
+		// plugins:css
+		link(rel='stylesheet', href='/stylesheets/mdi/css/materialdesignicons.min.css')
+		link(rel='stylesheet', href='/stylesheets/css/vendor.bundle.base.css')
+		// endinject
+		// Plugin css for this page
+		// End plugin css for this page
+		// inject:css
+		// endinject
+		// Layout styles
+		link(rel='stylesheet', href='/stylesheets/css/style.css')
+		// End layout styles
+		link(rel='shortcut icon', href='/images/favicon.png')
+	body
+		.container-scroller
+			.container-fluid.page-body-wrapper.full-page-wrapper
+				.row.w-100.m-0
+					.content-wrapper.full-page-wrapper.d-flex.align-items-center.auth.login-bg
+						.card.col-lg-4.mx-auto
+							.card-body.px-5.py-5
+								h3.card-title.text-left.mb-3 OTP Validation 
+								form(action = "/forget/otp" method = "post" id ="forgetPassForm")
+									.form-group
+									if value
+										label OTP *
+										input.form-control.p_input.mb-3(type='text' name = 'otp')
+										each v in value
+											if v.param =='otp'
+												span(class = 'text-danger errormsg') !{v.msg}
+									else
+										label OTP *
+										input.form-control.p_input.mb-3(type='text' name = 'otp')
+									.form-outline
+										button.btn.btn-primary.btn-block.enter-btn(type='submit') Submit
+		script(src='/javascripts/js/vendor.bundle.base.js')
+		script(src='/javascripts/js/off-canvas.js')
+		script(src='/javascripts/js/hoverable-collapse.js')
+		script(src='/javascripts/js/misc.js')
+		script(src='/javascripts/js/settings.js')
+		script(src='/javascripts/js/todolist.js')
+		script(src="https://code.jquery.com/jquery-3.6.4.min.js")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js")
+		//- script(src='/javascripts/validation/forgetPass/forgetPassValidation.js')

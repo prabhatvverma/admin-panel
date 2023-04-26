@@ -9,4 +9,8 @@ router.get('/', forgetPassController.showForgetPassword);
 /**post request for forget password */
 router.post('/', forgetPassEmailValidation, forgetPassController.sendingOTP)
 
+router.get('/otp', forgetPassController.verifyOtp);
+
+router.get('/newpass', forgetPassController.createNewPass)
+
 module.exports = router;

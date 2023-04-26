@@ -1,10 +1,9 @@
 const bcrypt = require("bcrypt");
 const db = require('../models/index')
-const nodemailer = require('nodemailer')
 const { validationResult } = require('express-validator')
-const jwt = require('jsonwebtoken');
+// const jwt = require('jsonwebtoken');
 const { query } = require("express");
-// var { randomBytes } = require('crypto');
+const sendMail = require("../services/emailService");
 
 class registerController {
     /**
@@ -50,7 +49,7 @@ class registerController {
         let url = "http://localhost:3000/register/verify?id=" + userId
         // console.log(url);
         // console.log(`${token},this is token`);
-        const sendMail = require("../services/emailService");
+        
         sendMail({
             from: emailFrom,
             to: emailTO,

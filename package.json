@@ -26,11 +26,13 @@
     "nodemailer": "^6.9.1",
     "nodemon": "^2.0.22",
     "otp-generator": "^4.0.1",
+    "otp-services": "^1.0.6",
     "passport": "^0.6.0",
     "passport-google-oauth2": "^0.2.0",
     "pug": "^3.0.2",
     "sequelize": "^6.31.0",
     "swagger-ui-express": "^4.6.2",
+    "twilio": "^4.10.0",
     "yamljs": "^0.3.0"
   },
   "main": "app.js",

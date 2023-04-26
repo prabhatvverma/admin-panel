@@ -1,7 +1,7 @@
-const { request } = require('express');
+const sendMail = require("../services/emailService");
 const { validationResult } = require('express-validator');
 const nodemailer = require('nodemailer');
-const otpGenerator = require('otp-generator');
+let otp_services = require("otp-services");
 class forgetPassController {
     /**
          * forget password
@@ -20,27 +20,32 @@ class forgetPassController {
             res.render('admin/resetpassword/index', {
                 value: value
             })
-        } else {
-            /* ------- connect with the smtp server------ */
-            const transporter = nodemailer.createTransport({
-                service: 'gmail',
-                auth: {
-                    user: 'prabhatnode@gmail.com',
-                    pass: 'vfblwfulwegxjmpf'
-                }
-            });
-            const varificationOtp = otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false });
-            await transporter.sendMail({
-                from: '"Debute Infotech" <prabhat@gmail.com>', // sender address
-                to: req.body.email, // list of receivers
-                subject: "varification Otp", // Subject line
-                text: "Dear customer, use this One Time Password " + varificationOtp + " to log in to your Debute account" // plain text body
-                // html: "<b>req.body.message?</b>", // html body
-            });
-            res.redirect("/login");
+            return
         }
+        /* ------- connect with the smtp server------ */
+        const emailTO = req.body.email;
+        const emailFrom = "prabhat@gmail.com"
+        const varificationOtp = otp_services.setNumber(4);
+        // const varificationOtp = otpGenerator.generate(4, { digits: true, upperCaseAlphabets: false, specialChars: false });
+        sendMail({
+            from: emailFrom,
+            to: emailTO,
+            subject:"Forget Password",
+            text: `${emailFrom} shared you a link to verify this is you`,
+            html: 'Dear customer, use this One Time Password  [ ' + varificationOtp + ' ] to log in to your Debute account'
+        });
+        res.redirect("/forget/otp");
+    }
+
+    async verifyOtp (req,res,next){
+        res.render("admin/resetpassword/verifyOtp")
+    }
+
+    async createNewPass (req,res,next){
+        res.render("admin/resetpassword/createNewPass")
     }
 }
+
 
 
 module.exports = new forgetPassController;
