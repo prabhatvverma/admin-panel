@@ -29,12 +29,12 @@ passport.use(new GoogleStrategy({
     // console.log(users);
     const newid = profile.id.slice(-3)
     const id = parseInt(newid)
-
-    await db.User.findOrCreate({
+    const user = db.User;
+    await user.findOrCreate({
       where:{
         id:profile.id.slice(-3)
-      }} , function (err, User) {
-      return done(err, User);
+      }} , function (err, user) {
+      return done(err, user);
     });
 
     // console.log(refreshToken);

@@ -1,14 +1,16 @@
-const accountSid = "AC0ee612aac819a57c970c108353508d44";
-const authToken = "447c57b0c889f6cf3943c2682f4c2866";
-const verifySid = "VA7a6d944b43d978dd48ada3206538bb29";
-const client = require("twilio")(accountSid, authToken,{
-    autoRetry: true,
-    maxRetries: 3
+require("dotenv").config();
+
+const accountSid = process.env.TWILIO_ACCOUNT_SI;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const verifySid = process.env.TWILIO_VERIFY_SID;
+const client = require("twilio")(accountSid, authToken, {
+  autoRetry: true,
+  maxRetries: 3
 });
 
 client.verify.v2
   .services(verifySid)
-  .verifications.create({ to: "+918756590708", channel: "sms" })
+  .verifications.create({ to: "+919795969539", channel: "sms" })
   .then((verification) => console.log(verification.status))
   .then(() => {
     const readline = require("readline").createInterface({
@@ -23,4 +25,3 @@ client.verify.v2
         .then(() => readline.close());
     });
   });
-
