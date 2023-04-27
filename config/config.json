@@ -4,6 +4,7 @@
     "password": "nayan@",
     "database": "admin_panel",
     "host": "127.0.0.1",
+    "timezone":"+05:30",
     "dialect": "mysql"
   },
   "test": {

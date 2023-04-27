@@ -1,12 +1,12 @@
 const { check } = require('express-validator');
 const db = require('../../models/index')
-
+let otp_services = require("otp-services");
 // console.log("validation page");
-var forgetPassEmailValidation = [
+const forgetPassEmailValidation = [
     check("email").not().isEmpty().withMessage("Enter Email").bail()
         .isEmail().withMessage("Enter a valid email").bail()
         .custom(async (value) => {
-            var data = await db.User.findOne({
+            const data = await db.User.findOne({
                 where: {
                     'email': value
                 }
@@ -15,6 +15,7 @@ var forgetPassEmailValidation = [
                 throw new Error("Email does't exist");
             }
         }).bail()
+
 ]
 
 module.exports = forgetPassEmailValidation;

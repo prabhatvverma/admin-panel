@@ -27,22 +27,22 @@ passport.use(new GoogleStrategy({
     //   return done(err, User)
     // });
     // console.log(users);
-    const newid = profile.id.slice(-3)
-    const id = parseInt(newid)
-    const user = db.User;
-    await user.findOrCreate({
-      where:{
-        id:profile.id.slice(-3)
-      }} , function (err, user) {
-      return done(err, user);
-    });
-
-    // console.log(refreshToken);
-    // console.log(profile);
     // const newid = profile.id.slice(-3)
     // const id = parseInt(newid)
-    console.log(id);
-    console.log(typeof id); 
+    // const user = db.User;
+    // await user.findOrCreate({
+    //   where:{
+    //     id:profile.id.slice(-3)
+    //   }} , function (err, user) {
+    //   return done(err, user);
+    // });
+
+    // console.log(refreshToken);
+    console.log(profile);
+    // const newid = profile.id.slice(-3)
+    // const id = parseInt(newid)
+    // console.log(id);
+    // console.log(typeof id); 
     // console.log(profile.id.slice(-3));
     done(null, profile);
   }
