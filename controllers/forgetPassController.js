@@ -3,9 +3,10 @@ const session = require('express-session');
 const db = require("../models/index")
 const { validationResult } = require('express-validator');
 let otp_services = require("otp-services");
+const bcrypt = require("bcrypt");
 class forgetPassController {
     /**
-         * forget password
+         * SHOW FORGET PASSWORD PAGE
          * @param {*} req 
          * @param {*} res 
          * @param {*} next 
@@ -14,9 +15,17 @@ class forgetPassController {
         res.render('admin/resetpassword/index');
     }
 
-    async sendingOTP(req, res, next) {
-        const result = validationResult(req);
-        const value = result.errors;
+
+    /**
+     * SHOW OTP VALIDATION PAGE & ADD DATA TO TABLE STORE EMAIL IN SESSION
+     * @param {*} req 
+     * @param {*} res 
+     * @param {*} next 
+     * @returns 
+     */
+
+    async showSendingOTP(req, res, next) {
+        const value = validationResult(req).errors;
         if (value.length > 0) {
             res.render('admin/resetpassword/index', {
                 value: value
@@ -28,8 +37,8 @@ class forgetPassController {
                 email: req.body.email
             }
         })
-        // const emailTO = req.body.email;
-        // const emailFrom = "prabhat@gmail.com"
+        const emailTO = req.body.email;
+        const emailFrom = "prabhat@gmail.com"
         const varificationOtp = otp_services.setNumber(4);
         await db.ForgetPasswordOtp.create({
             'email': req.body.email,
@@ -37,25 +46,46 @@ class forgetPassController {
             'otp': varificationOtp,
             'expireAt': Date.now() + 5 * 60000
         })
-        req.session.forOtp = req.body.email;
-        /* ------- connect with the smtp server------ */
-        // sendMail({
-        //     from: emailFrom,
-        //     to: emailTO,
-        //     subject: "Forget Password",
-        //     text: `${emailFrom} shared you a link to verify this is you`,
-        //     html: 'Dear customer, use this One Time Password  [ ' + varificationOtp + ' ] to log in to your Debute account'
-        // });
+        req.session.forOtp = userTableData.email;
+        /* ------- SENDING OTP IN EMAIL TO RESET USER PASSWORD------ */
+        sendMail({
+            from: emailFrom,
+            to: emailTO,
+            subject: "Forget Password",
+            text: `${emailFrom} shared you a link to verify this is you`,
+            html: 'Dear customer, use this One Time Password  [ ' + varificationOtp + ' ] to log in to your Debute account'
+        });
 
-        res.redirect('forget/otp');
-    }
-    async showVerfyOtp(req,res,next){
-        res.render("admin/resetpassword/verifyOtp",{
+        res.render('admin/resetpassword/verifyOtp', {
             email: req.session.forOtp
         })
     }
 
-    async verifyOtp(req, res, next) {
+    /**
+     * SHOW CREATENEWPASS PAGE AND CREATE NEWWW PASS ADD TO DATABASE
+     * @param {*} req 
+     * @param {*} res 
+     * @param {*} next 
+     */
+    async showcreateNewPass(req, res, next) {
+        const result = validationResult(req);
+        const value = result.errors;
+        console.log(value);
+        if (value.length > 0) {
+            res.render("admin/resetpassword/verifyOtp", {
+                email: req.session.forOtp,
+                value
+            })
+        }       
+        res.render("admin/resetpassword/createNewPass")
+    }
+/**
+ * POST REQUEST FOR NEW PASSWORD REDIRECT TO LOGIN PAGE 
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
+    async updatePassword(req, res, next) {
         const result = validationResult(req);
         const value = result.errors;
         console.log(value);
@@ -65,15 +95,16 @@ class forgetPassController {
                 value
             })
         }
-        // res.render("admin/resetpassword/verifyOtp", {
-        //     email: req.session.forOtp,
-        //     value
-        // })
-        res.redirect('forget/newpass');
-    }
-
-    async createNewPass(req, res, next) {
-        res.render("admin/resetpassword/createNewPass")
+     console.log(req.session.forOtp);
+        req.body.newPass = await bcrypt.hash(req.body.newPass, 10);
+        console.log(req.body.newPass);
+        await db.User.update({ password: req.body.newPass},
+            {
+                where: {
+                    email: req.session.forOtp
+                }
+            })
+        res.redirect('/login')
     }
 }
 

@@ -42,7 +42,7 @@ app.use(passport.session());
 
 app.use('/api-docs', swaggerUI.serve,swaggerUI.setup(swaggerJsDocs));
 
-// app.use('/', indexRouter);
+app.use('/ind', require('./routes/test'));
 app.use('/users', require('./routes/users'));
 app.use('/login', require('./routes/login'));
 app.use('/register', require('./routes/register'));
