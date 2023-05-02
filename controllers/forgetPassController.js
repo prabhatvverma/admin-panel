@@ -40,6 +40,7 @@ class forgetPassController {
         const emailTO = req.body.email;
         const emailFrom = "prabhat@gmail.com"
         const varificationOtp = otp_services.setNumber(4);
+        // const storeEncOtp = await bcrypt.hash(varificationOtp, 10);
         await db.ForgetPasswordOtp.create({
             'email': req.body.email,
             'user_id': userTableData.id,
@@ -76,29 +77,26 @@ class forgetPassController {
                 email: req.session.forOtp,
                 value
             })
-        }       
+        }
         res.render("admin/resetpassword/createNewPass")
     }
-/**
- * POST REQUEST FOR NEW PASSWORD REDIRECT TO LOGIN PAGE 
- * @param {*} req 
- * @param {*} res 
- * @param {*} next 
- */
+    /**
+     * POST REQUEST FOR NEW PASSWORD REDIRECT TO LOGIN PAGE 
+     * @param {*} req 
+     * @param {*} res 
+     * @param {*} next 
+     */
     async updatePassword(req, res, next) {
         const result = validationResult(req);
         const value = result.errors;
-        console.log(value);
         if (value.length > 0) {
             res.render("admin/resetpassword/verifyOtp", {
                 email: req.session.forOtp,
                 value
             })
         }
-     console.log(req.session.forOtp);
         req.body.newPass = await bcrypt.hash(req.body.newPass, 10);
-        console.log(req.body.newPass);
-        await db.User.update({ password: req.body.newPass},
+        await db.User.update({ password: req.body.newPass },
             {
                 where: {
                     email: req.session.forOtp

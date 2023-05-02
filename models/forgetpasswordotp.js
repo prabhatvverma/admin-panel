@@ -15,9 +15,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   ForgetPasswordOtp.init({
     user_id: DataTypes.INTEGER,
-    email: DataTypes.STRING,
     otp: DataTypes.STRING,
-    expireAt:DataTypes.STRING
+    expireAt: DataTypes.BIGINT,
+    status: DataTypes.ENUM('active','used')
   }, {
     sequelize,
     modelName: 'ForgetPasswordOtp',

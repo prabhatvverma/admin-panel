@@ -12,19 +12,15 @@ module.exports = {
       user_id: {
         type: Sequelize.INTEGER
       },
-      email: {
-        type: Sequelize.STRING
-      },
       otp: {
-        type: Sequelize.STRING
-      },
-      expireAt: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.BIGINT
+      },
+      status:{
+        type: Sequelize.ENUM(('active','used'))
       },
       updatedAt: {
         allowNull: false,

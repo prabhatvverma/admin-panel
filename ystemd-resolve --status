@@ -1,0 +1,113 @@
+[0;1;31m●[0m nayan
+    State: [0;1;31mdegraded[0m
+     Jobs: 0 queued
+   Failed: 3 units
+    Since: Tue 2023-05-02 08:55:16 IST; 53min ago
+   CGroup: /
+           ├─user.slice 
+           │ └─user-1000.slice 
+           │   ├─user@1000.service 
+           │   │ ├─session.slice 
+           │   │ │ └─pulseaudio.service 
+           │   │ │   └─[0;38;5;245m3697 /usr/bin/pulseaudio --daemonize=no --log-target=journal[0m
+           │   │ ├─app.slice 
+           │   │ │ ├─gvfs-goa-volume-monitor.service 
+           │   │ │ │ └─[0;38;5;245m4106 /usr/libexec/gvfs-goa-volume-monitor[0m
+           │   │ │ ├─powerline-daemon.service 
+           │   │ │ │ └─[0;38;5;245m3696 /usr/bin/python3 /usr/bin/powerline-daemon --foreground[0m
+           │   │ │ ├─dconf.service 
+           │   │ │ │ └─[0;38;5;245m4045 /usr/libexec/dconf-service[0m
+           │   │ │ ├─gvfs-daemon.service 
+           │   │ │ │ ├─[0;38;5;245m3829 /usr/libexec/gvfsd[0m
+           │   │ │ │ └─[0;38;5;245m3834 /usr/libexec/gvfsd-fuse /run/user/1000/gvfs -f[0m
+           │   │ │ ├─gvfs-udisks2-volume-monitor.service 
+           │   │ │ │ └─[0;38;5;245m4101 /usr/libexec/gvfs-udisks2-volume-monitor[0m
+           │   │ │ ├─gpg-agent.service 
+           │   │ │ │ └─[0;38;5;245m3914 /usr/bin/gpg-agent --supervised[0m
+           │   │ │ ├─gvfs-gphoto2-volume-monitor.service 
+           │   │ │ │ └─[0;38;5;245m4119 /usr/libexec/gvfs-gphoto2-volume-monitor[0m
+           │   │ │ ├─snap.firefox.firefox.9a325f37-3421-468b-91b3-a31c5896f714.scope 
+           │   │ │ │ ├─[0;38;5;245m 8084 /snap/firefox/2579/usr/lib/firefox/firefox[0m
+           │   │ │ │ ├─[0;38;5;245m 8237 /snap/firefox/2579/usr/lib/firefox/firefox -contentproc -parentBuildID 20230414190624 -prefsLen 27399 -prefMapSize 232616 -appDir /snap/firefox/2579/usr/lib/firefox/browser {0286352f-6fd5-4103-b9d1-c9cd25fa42a7} 8084 true socket[0m
+           │   │ │ │ ├─[0;38;5;245m 8253 /snap/firefox/2579/usr/lib/firefox/firefox -contentproc -childID 1 -isForBrowser -prefsLen 27540 -prefMapSize 232616 -jsInitLen 240056 -parentBuildID 20230414190624 -appDir /snap/firefox/2579/usr/lib/firefox/browser {4c263a64-e90d-4103-8cea-afb9d93472d6} 8084 true tab[0m
+           │   │ │ │ ├─[0;38;5;245m 8320 /snap/firefox/2579/usr/lib/firefox/firefox -contentproc -childID 2 -isForBrowser -prefsLen 32047 -prefMapSize 232616 -jsInitLen 240056 -parentBuildID 20230414190624 -appDir /snap/firefox/2579/usr/lib/firefox/browser {0199edb0-8e06-41b7-b731-101cb3b73933} 8084 true tab[0m
+           │   │ │ │ ├─[0;38;5;245m 8731 /snap/firefox/2579/usr/lib/firefox/firefox -contentproc -parentBuildID 20230414190624 -prefsLen 32966 -prefMapSize 232616 -appDir /snap/firefox/2579/usr/lib/firefox/browser {702a3c3a-42c9-45c0-b1e2-191ccb6701bc} 8084 true rdd[0m
+           │   │ │ │ ├─[0;38;5;245m 8733 /snap/firefox/2579/usr/lib/firefox/firefox -contentproc -parentBuildID 20230414190624 -sandboxingKind 0 -prefsLen 32966 -prefMapSize 232616 -appDir /snap/firefox/2579/usr/lib/firefox/browser {96900035-5eda-4d61-8c6f-2fe511dbeee8} 8084 true utility[0m
+           │   │ │ │ ├─[0;38;5;245m 9068 /snap/firefox/2579/usr/lib/firefox/firefox -contentproc -childID 19 -isForBrowser -prefsLen 29374 -prefMapSize 232616 -jsInitLen 240056 -parentBuildID 20230414190624 -appDir /snap/firefox/2579/usr/lib/firefox/browser {7e6441a1-e25b-41a0-9cd6-d496dd35705a} 8084 true tab[0m
+           │   │ │ │ ├─[0;38;5;245m 9700 /snap/firefox/2579/usr/lib/firefox/firefox -contentproc -childID 22 -isForBrowser -prefsLen 29374 -prefMapSize 232616 -jsInitLen 240056 -parentBuildID 20230414190624 -appDir /snap/firefox/2579/usr/lib/firefox/browser {84110d2a-cb73-4986-86eb-4519f70f25ca} 8084 true tab[0m
+           │   │ │ │ ├─[0;38;5;245m10277 /snap/firefox/2579/usr/lib/firefox/firefox -contentproc -childID 24 -isForBrowser -prefsLen 29374 -prefMapSize 232616 -jsInitLen 240056 -parentBuildID 20230414190624 -appDir /snap/firefox/2579/usr/lib/firefox/browser {8f374f9e-b1e9-4114-9d28-32612b918f6a} 8084 true tab[0m
+           │   │ │ │ ├─[0;38;5;245m10320 /snap/firefox/2579/usr/lib/firefox/firefox -contentproc -childID 25 -isForBrowser -prefsLen 29374 -prefMapSize 232616 -jsInitLen 240056 -parentBuildID 20230414190624 -appDir /snap/firefox/2579/usr/lib/firefox/browser {d4a14d67-acf1-4b2d-8e97-0e8fdca4c3b7} 8084 true tab[0m
+           │   │ │ │ ├─[0;38;5;245m10364 /snap/firefox/2579/usr/lib/firefox/firefox -contentproc -childID 26 -isForBrowser -prefsLen 29374 -prefMapSize 232616 -jsInitLen 240056 -parentBuildID 20230414190624 -appDir /snap/firefox/2579/usr/lib/firefox/browser {87618d8d-e51d-4f6c-8dec-8329fb875eb5} 8084 true tab[0m
+           │   │ │ │ └─[0;38;5;245m10426 /snap/firefox/2579/usr/lib/firefox/firefox -contentproc -childID 27 -isForBrowser -prefsLen 29374 -prefMapSize 232616 -jsInitLen 240056 -parentBuildID 20230414190624 -appDir /snap/firefox/2579/usr/lib/firefox/browser {60872d44-200d-47f7-b256-9bc15e280386} 8084 true tab[0m
+           │   │ │ ├─at-spi-dbus-bus.service 
+           │   │ │ │ ├─[0;38;5;245m3865 /usr/libexec/at-spi-bus-launcher[0m
+           │   │ │ │ ├─[0;38;5;245m3871 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 11 --address=unix:path=/run/user/1000/at-spi/bus_0[0m
+           │   │ │ │ └─[0;38;5;245m3875 /usr/libexec/at-spi2-registryd --use-gnome-session[0m
+           │   │ │ ├─gvfs-metadata.service 
+           │   │ │ │ └─[0;38;5;245m5547 /usr/libexec/gvfsd-metadata[0m
+           │   │ │ ├─dbus.service 
+           │   │ │ │ ├─[0;38;5;245m3699 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only[0m
+           │   │ │ │ ├─[0;38;5;245m3852 /usr/libexec/ibus-portal[0m
+           │   │ │ │ ├─[0;38;5;245m3873 /usr/lib/x86_64-linux-gnu/xfce4/xfconf/xfconfd[0m
+           │   │ │ │ ├─[0;38;5;245m3890 /usr/bin/xfce4-screensaver[0m
+           │   │ │ │ ├─[0;38;5;245m4217 /usr/bin/gnome-keyring-daemon --start --foreground --components=secrets[0m
+           │   │ │ │ └─[0;38;5;245m6456 /usr/bin/snap userd[0m
+           │   │ │ ├─bamfdaemon.service 
+           │   │ │ │ └─[0;38;5;245m4058 /usr/lib/x86_64-linux-gnu/bamf/bamfdaemon[0m
+           │   │ │ ├─gvfs-mtp-volume-monitor.service 
+           │   │ │ │ └─[0;38;5;245m4115 /usr/libexec/gvfs-mtp-volume-monitor[0m
+           │   │ │ └─gvfs-afc-volume-monitor.service 
+           │   │ │   └─[0;38;5;245m4110 /usr/libexec/gvfs-afc-volume-monitor[0m
+           │   │ └─init.scope 
+           │   │   ├─[0;38;5;245m3689 /lib/systemd/systemd --user[0m
+           │   │   └─[0;38;5;245m3690 (sd-pam)[0m
+           │   └─session-c2.scope 
+           │     ├─[0;38;5;245m 3047 lightdm --session-child 12 19[0m
+           │     ├─[0;38;5;245m 3698 /bin/bash /usr/local/bin/xfce4-session[0m
+           │     ├─[0;38;5;245m 3816 /usr/bin/ibus-daemon --daemonize --xim[0m
+           │     ├─[0;38;5;245m 3826 /usr/bin/xfce4-session[0m
+           │     ├─[0;38;5;245m 3836 /usr/libexec/ibus-dconf[0m
+           │     ├─[0;38;5;245m 3844 /usr/libexec/ibus-ui-gtk3[0m
+           │     ├─[0;38;5;245m 3847 /usr/libexec/ibus-extension-gtk3[0m
+           │     ├─[0;38;5;245m 3849 /usr/libexec/ibus-x11 --kill-daemon[0m
+           │     ├─[0;38;5;245m 3891 /usr/libexec/ibus-engine-simple[0m
+           │     ├─[0;38;5;245m 3907 /usr/bin/ssh-agent -s[0m
+           │     ├─[0;38;5;245m 3916 xfwm4[0m
+           │     ├─[0;38;5;245m 3926 xfsettingsd[0m
+           │     ├─[0;38;5;245m 3934 xfce4-panel[0m
+           │     ├─[0;38;5;245m 3938 Thunar --daemon[0m
+           │     ├─[0;38;5;245m 3943 xfdesktop[0m
+           │     ├─[0;38;5;245m 3944 /usr/lib/x86_64-linux-gnu/xfce4/panel/wrapper-2.0 /usr/lib/x86_64-linux-gnu/xfce4/panel/plugins/libwhiskermenu.so 17 25165835 whiskermenu Whisker Menu Show a menu to easily access installed applications[0m
+           │     ├─[0;38;5;245m 3949 /usr/lib/x86_64-linux-gnu/xfce4/panel/wrapper-2.0 /usr/lib/x86_64-linux-gnu/xfce4/panel/plugins/libpulseaudio-plugin.so 8 25165836 pulseaudio PulseAudio Plugin Adjust the audio volume of the PulseAudio sound system[0m
+           │     ├─[0;38;5;245m 3950 /usr/lib/x86_64-linux-gnu/xfce4/panel/wrapper-2.0 /usr/lib/x86_64-linux-gnu/xfce4/panel/plugins/libactions.so 1 25165837 actions Action Buttons Log out, lock or other system actions[0m
+           │     ├─[0;38;5;245m 3951 /usr/lib/x86_64-linux-gnu/xfce4/panel/wrapper-2.0 /usr/lib/x86_64-linux-gnu/xfce4/panel/plugins/libsystray.so 22 25165838 systray Status Tray Plugin Provides status notifier items (application indicators) and legacy systray items[0m
+           │     ├─[0;38;5;245m 3952 /usr/lib/x86_64-linux-gnu/xfce4/panel/wrapper-2.0 /usr/lib/x86_64-linux-gnu/xfce4/panel/plugins/libdatetime.so 7 25165839 datetime DateTime Date and Time plugin with a simple calendar[0m
+           │     ├─[0;38;5;245m 3953 /usr/lib/x86_64-linux-gnu/xfce4/panel/wrapper-2.0 /usr/lib/x86_64-linux-gnu/xfce4/panel/plugins/libxfce4powermanager.so 13 25165840 power-manager-plugin Power Manager Plugin Display the battery levels of your devices and control the brightness of your display[0m
+           │     ├─[0;38;5;245m 3976 plank[0m
+           │     ├─[0;38;5;245m 3983 /usr/bin/python3 /usr/share/system-config-printer/applet.py[0m
+           │     ├─[0;38;5;245m 3994 /usr/share/skypeforlinux/skypeforlinux --executed-from=/home/nayan --pid=3969 --enable-crashpad[0m
+           │     ├─[0;38;5;245m 3996 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1[0m
+           │     ├─[0;38;5;245m 3998 /usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd[0m
+           │     ├─[0;38;5;245m 4002 nm-applet[0m
+           │     ├─[0;38;5;245m 4007 xfce4-power-manager[0m
+           │     ├─[0;38;5;245m 4012 /usr/libexec/ayatana-indicator-application/ayatana-indicator-application-service[0m
+           │     ├─[0;38;5;245m 4089 /usr/share/skypeforlinux/skypeforlinux --type=zygote --no-zygote-sandbox --enable-crashpad --enable-crashpad[0m
+           │     ├─[0;38;5;245m 4090 /usr/share/skypeforlinux/skypeforlinux --type=zygote --enable-crashpad --enable-crashpad[0m
+           │     ├─[0;38;5;245m 4094 /usr/share/skypeforlinux/skypeforlinux --type=zygote --enable-crashpad --enable-crashpad[0m
+           │     ├─[0;38;5;245m 4136 /usr/share/skypeforlinux/chrome_crashpad_handler --monitor-self-annotation=ptype=crashpad-handler --no-rate-limit --database=/home/nayan/.config/skypeforlinux/Crashpad --url=appcenter://generic?aid=70b7a841-531e-4f9a-9b55-ff40f9d0fb67&iid=24933fea-80ff-42a4-eb8c-dcdcde9084c6&uid=24933fea-80ff-42a4-eb8c-dcdcde9084c6 --annotation=IsOfficialBuild=1 --annotation=_companyName=Skype --annotation=_productName=skypeforlinux --annotation=_version=8.97.0.204 --annotation=exe=/usr/share/skypeforlinux/skypeforlinux --executed-from=/home/nayan --pid=3969 --enable-crashpad --annotation=lsb-release=Linux Lite 6.4 --annotation=plat=Linux --annotation=prod=Electron --annotation=ver=19.1.8 --initial-client-fd=42 --shared-client-connection[0m
+           │     ├─[0;38;5;245m 4153 /usr/share/skypeforlinux/skypeforlinux --type=gpu-process --enable-crashpad --crashpad-handler-pid=4136 --enable-crash-reporter=13e076fd-69b4-4f9c-99ad-bd7d2efc8d7f,no_channel --user-data-dir=/home/nayan/.config/skypeforlinux --gpu-preferences=WAAAAAAAAAAgAAAIAAAAAAAAAAAAAAAAAABgAAAAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAIAAAAAAAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAA== --shared-files --field-trial-handle=0,i,11945139986129003711,10416686057945510586,131072 --disable-features=SpareRendererForSitePerProcess[0m
+           │     ├─[0;38;5;245m 4162 /usr/share/skypeforlinux/skypeforlinux --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-GB --service-sandbox-type=none --enable-crashpad --crashpad-handler-pid=4136 --enable-crash-reporter=13e076fd-69b4-4f9c-99ad-bd7d2efc8d7f,no_channel --user-data-dir=/home/nayan/.config/skypeforlinux --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,11945139986129003711,10416686057945510586,131072 --disable-features=SpareRendererForSitePerProcess --enable-crashpad[0m
+           │     ├─[0;38;5;245m 4180 /usr/share/skypeforlinux/skypeforlinux --type=renderer --enable-crashpad --crashpad-handler-pid=4136 --enable-crash-reporter=13e076fd-69b4-4f9c-99ad-bd7d2efc8d7f,no_channel --user-data-dir=/home/nayan/.config/skypeforlinux --app-path=/usr/share/skypeforlinux/resources/app.asar --no-sandbox --no-zygote --autoplay-policy=no-user-gesture-required --disable-background-timer-throttling --ms-disable-indexeddb-transaction-timeout --lang=en-GB --num-raster-threads=2 --enable-main-frame-before-activation --renderer-client-id=4 --launch-time-ticks=301678230 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,11945139986129003711,10416686057945510586,131072 --disable-features=SpareRendererForSitePerProcess --skype-process-type=Main --skype-window-id=__MAIN_ROOT_VIEW_ID__ --enable-crashpad[0m
+           │     ├─[0;38;5;245m 4228 /usr/share/skypeforlinux/skypeforlinux --type=utility --utility-sub-type=audio.mojom.AudioService --lang=en-GB --service-sandbox-type=none --enable-crashpad --crashpad-handler-pid=4136 --enable-crash-reporter=13e076fd-69b4-4f9c-99ad-bd7d2efc8d7f,no_channel --user-data-dir=/home/nayan/.config/skypeforlinux --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,11945139986129003711,10416686057945510586,131072 --disable-features=SpareRendererForSitePerProcess --enable-crashpad[0m
+           │     ├─[0;38;5;245m 4554 xfce4-terminal[0m
+           │     ├─[0;38;5;245m 4577 zsh[0m
+           │     ├─[0;38;5;245m 4581 zsh[0m
+           │     ├─[0;38;5;245m 4885 zsh[0m
+           │     ├─[0;38;5;245m 4886 zsh[0m
+           │     ├─[0;38;5;245m 4888 /home/nayan/.cache/gitstatus/gitstatusd-linux-x86_64 -G v1.5.4 -s -1 -u -1 -d -1 -c -1 -m -1 -v FATAL -t 8[0m
+           │     ├─[0;38;5;245m 4931 /usr/share/code/code --enable-crashpad .[0m
+           │     ├─[0;38;5;245m 4937 /usr/share/code/code --type=zygote --no-zygote-sandbox --enable-crashpad --enable-crashpad[0m
+           │     ├─[0;38;5;245m 4938 /usr/share/code/code --type=zygote --enable-crashpad --enable-crashpad[0m
+           │     ├─[0;38;5;245m 4940 /usr/share/code/code --type=zygote --enable-crashpad --enable-crashpad[0m
+           │     ├─[0;38;5;245m 4955 /usr/share/code/chrome_crashpad_handler --monitor-self-annotation=ptype=crashpad-handler --no-rate-limit --database=/home/nayan/.config/Code/Crashpad --url=appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=7700b427-7f24-4b60-bfeb-0f09ef682ef3&iid=7700b427-7f24-4b60-bfeb-0f09ef682ef3&sid=7700b427-7f24-4b60-bfeb-0f09ef682ef3 --annotation=IsOfficialBuild=1 --annotation=_companyName=Microsoft --annotation=_productName=VSCode --annotation=_version=1.77.3 --annotation=exe=/usr/share/code/code --enable-crashpad . --annotation=lsb-release=Linux Lite 6.4 --annotation=plat=Linux --annotation=prod=Electron --annotation=ver=19.1.11 --initial-client-fd=43 --shared-client-connection[0m
+           │     ├─[0;38;5;245m 4967 /usr/share/code/code --type=gpu-process --enable-crashpad --crashpad-handler-pid=4955 --enable-crash-reporter=80d06685-da1b-478c-bdba-4ba5b6a5e695,no_channel --user-data-dir=/home/nayan/.config/Code --gpu-preferences=WA

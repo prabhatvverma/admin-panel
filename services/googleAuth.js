@@ -8,42 +8,23 @@ passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
   callbackURL: "http://localhost:3000/auth/google/callback",
-  passReqToCallback: true
+  scope:['profile','email'],
+  passReqToCallback: true,
 },
   async (request, accessToken, refreshToken, profile, done) => {
-    // await db.User.findAll();
-    // const email = profile.email;
-    // const serchCritaria = {
-    //   where: {
-    //     email: email
-    //   }
-    // };
-
-    // const defaults = {
-    //   first_name: profile.given_name
-    // };
-
-    // const [users, created] = await db.User.findOrCreate(serchCritaria, defaults, function (err, User) {
-    //   return done(err, User)
-    // });
-    // console.log(users);
-    // const newid = profile.id.slice(-3)
-    // const id = parseInt(newid)
-    // const user = db.User;
-    // await user.findOrCreate({
-    //   where:{
-    //     id:profile.id.slice(-3)
-    //   }} , function (err, user) {
-    //   return done(err, user);
-    // });
-
-    // console.log(refreshToken);
-    console.log(profile);
-    // const newid = profile.id.slice(-3)
-    // const id = parseInt(newid)
-    // console.log(id);
-    // console.log(typeof id); 
-    // console.log(profile.id.slice(-3));
+    const usertabledata = await db.User.findOne({
+      where: {
+        email: profile.email
+      }
+    });
+    if (usertabledata == null) {
+      await db.User.create({
+        first_name: profile.given_name,
+        last_name: profile.family_name,
+        email: profile.email,
+        is_verified: 1
+      })
+    }
     done(null, profile);
   }
 ));

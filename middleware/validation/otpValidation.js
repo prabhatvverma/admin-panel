@@ -1,12 +1,11 @@
 const { check } = require("express-validator");
 const db = require("../../models/index");
-// const { isColString } = require("sequelize/types/utils");
-
 
 const otpvalidation = [
     check("otp").not().isEmpty().withMessage("Please Enter Otp").bail()
         .isLength("4").withMessage(" Please enter 4 digit otp").bail()
         .custom(async (value, { req }) => {
+            const varificationOtp = await bcrypt.compare(req.body.otp, data.password)
             const data = await db.ForgetPasswordOtp.findAll({
                 where: {
                     email: req.body.email,
@@ -17,7 +16,7 @@ const otpvalidation = [
             if (data.length == 0) {
                 throw new Error("Enter Valid otp");
             }
-            if (Number(data[0].expireAt)-Date.now() < 0) {
+            if (Number(data[0].expireAt) - Date.now() < 0) {
                 throw new Error("Otp expired");
             }
             // console.log(otpTabelData);

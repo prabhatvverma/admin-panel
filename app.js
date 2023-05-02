@@ -32,29 +32,28 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true,
-  // cookie: { secure: true }
+  //  cookie: { secure: true }
 }))
 app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.session()); 
 
 
-//YAML LISTENING ROUTE DEFINE
+//  YAML LISTENING ROUTE DEFINE
 
-app.use('/api-docs', swaggerUI.serve,swaggerUI.setup(swaggerJsDocs));
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerJsDocs));
 
-app.use('/ind', require('./routes/test'));
-app.use('/users', require('./routes/users'));
 app.use('/login', require('./routes/login'));
+app.use('/users', require('./routes/users'));
 app.use('/register', require('./routes/register'));
 app.use('/forget', require('./routes/forgetPas'));
 app.use('/admin', require('./routes/admin'));
 
-
-app.get( '/auth/google/callback',
-    passport.authenticate( 'google', {
-        successRedirect: '/admin',
-        failureRedirect: '/register'
-}));
+//  CALLBACK URL FOR GOOGLE AUTHENTICATION
+app.get('/auth/google/callback',
+  passport.authenticate('google', {
+    successRedirect: '/admin',
+    failureRedirect: '/register'
+  }));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
